@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Logo from './Logo';
 
 function Header() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, systemTheme } = useTheme();
 
   const [mounted, setMounted] = useState(false);
 
@@ -22,7 +22,7 @@ function Header() {
             htmlFor="checked-toggle"
             className="relative inline-flex cursor-pointer items-center"
           >
-            <span className="mr-2">
+            <span aria-label="일반 모드 아이콘" className="mr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-yellow-500"
@@ -38,6 +38,7 @@ function Header() {
             </span>
 
             <input
+              aria-label="모드 스위치"
               type="checkbox"
               value=""
               id="checked-toggle"
@@ -47,9 +48,9 @@ function Header() {
               }
               checked={theme === 'dark' ? true : false}
             />
-            <div className="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-yellow-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-4 peer-focus:ring-yellow-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-yellow-800"></div>
+            <div className="peer h-6 w-11 rounded-full bg-neutral-600 after:absolute after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-yellow-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-2 peer-focus:ring-neutral-600 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-neutral-800"></div>
 
-            <span className="ml-2">
+            <span aria-label="다크모드 아이콘" className="ml-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-yellow-500"
